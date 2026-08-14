@@ -62,6 +62,13 @@ shared account, TestFlight build, or maintained prebuilt app. See
 [ARCHITECTURE.md](./ARCHITECTURE.md) for the runtime sequence and ownership
 boundaries.
 
+While connected, the message panel provides four modes: Text, Image, Speak,
+and Think. Text and Speak expose all `.interrupt`, `.append`, and `.ignore`
+priorities. Think exposes every listening, thinking, and speaking action plus
+interruptability and optional demo metadata. The initially selected values
+match the API defaults: Speak priority `.interrupt`; Think listening
+`.interrupt`, thinking `.ignore`, speaking `.ignore`; interruptability enabled.
+
 ## Install
 
 Choose one package manager to integrate `AgoraAgentClientToolkit`. Do not integrate the same component through CocoaPods and Swift Package Manager at the same time.
