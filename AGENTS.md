@@ -224,15 +224,15 @@ Rehoboam is the internal release platform for both CocoaPods and SwiftPM. Do not
 
 Release strategy:
 
-- Publish only formal SemVer versions, for example `2.9.0`; do not publish prerelease or SNAPSHOT versions.
+- Publish only formal SemVer versions; do not publish prerelease or SNAPSHOT versions.
 - Complete package plus sample or clean-app validation before formal publication.
 - If a problem is found after the final version is published, do not overwrite or delete that version; publish a new version such as `2.9.1`.
 
 To prepare the Rehoboam upload zips:
 
 ```bash
-VERSION=2.9.0 scripts/build_rehoboam_cocoapods_input_zip.sh
-VERSION=2.9.0 scripts/build_rehoboam_swiftpm_input_zip.sh
+VERSION=<version> scripts/build_rehoboam_cocoapods_input_zip.sh
+VERSION=<version> scripts/build_rehoboam_swiftpm_input_zip.sh
 ```
 
 The generated zips are:
