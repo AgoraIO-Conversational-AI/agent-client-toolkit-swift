@@ -15,7 +15,7 @@ backend, shared credentials, TestFlight build, or prebuilt app.
 
 The iOS client owns RTC, RTM, Toolkit, UI, and immediate local cleanup. The
 FastAPI service under `server/` owns all secrets, combined user token
-generation, and agent lifecycle operations through `agora-agents==2.4.1`.
+generation, and agent lifecycle operations through `agora-agents>=2.4.1,<3.0.0`.
 
 Current demo scope includes startup-time independent SOS/EOS selection,
 transcript and latency rendering, agent state, interrupt, text, image URL,
@@ -30,8 +30,8 @@ speak and think messages, manual SOS/EOS, mute, and stop.
 | RTC | `AgoraRtcEngine_iOS` 4.5.1 |
 | RTM | `AgoraRtm/RtmKit` 2.2.3 |
 | Toolkit | local CocoaPods pod `agent-client-toolkit-swift` |
-| Backend | Python 3.10+, FastAPI, `agora-agents==2.4.1` |
-| Providers | Agora Fengming STT + managed OpenAI LLM + MiniMax TTS |
+| Backend | Python 3.10+, FastAPI, `agora-agents>=2.4.1,<3.0.0` |
+| Providers | Agora Ares STT + managed OpenAI LLM + MiniMax TTS |
 
 ## Core Modules
 
@@ -75,7 +75,7 @@ speak and think messages, manual SOS/EOS, mute, and stop.
 
 - `server/src/server.py` defines the FastAPI envelope and routes.
 - `server/src/agent.py` validates environment configuration, creates one
-  `AsyncAgora` client, builds the Fengming/OpenAI/MiniMax Agent, and
+  `AsyncAgora` client, builds the Ares/OpenAI/MiniMax Agent, and
   tracks active `AsyncAgentSession` values by `agentId`.
 - User config contains a combined RTC + RTM token generated on the server.
 - Successful `/get_config` responses use `Cache-Control: no-store`.
@@ -87,7 +87,7 @@ speak and think messages, manual SOS/EOS, mute, and stop.
   also safe for the Android quickstart.
 - Stop uses a tracked session first and `AsyncAgora.stop_agent()` as an
   idempotent stateless fallback.
-- Fengming ASR is explicit and has no provider parameters. OpenAI and MiniMax
+- Ares ASR is explicit and has no provider parameters. OpenAI and MiniMax
   constructors do not receive provider keys. Request-shape tests lock the ASR
   vendor, managed LLM/TTS preset, and absence of third-party credentials.
 

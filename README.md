@@ -36,7 +36,7 @@ Set `AGORA_APP_ID` and `AGORA_APP_CERTIFICATE` from your Agora project in
 ./scripts/start_backend.sh
 ```
 
-On first use, the script creates `server/.venv` and installs the pinned Python
+On first use, the script creates `server/.venv` and installs the Python
 dependencies. It starts FastAPI on `0.0.0.0:8001` by default, detects the Mac's
 active LAN IP, waits for `/health`, and writes only the backend address to the
 Git-ignored `Config/VoiceAgent-Local.xcconfig`.
@@ -44,6 +44,9 @@ Git-ignored `Config/VoiceAgent-Local.xcconfig`.
 Set `PORT` in `server/.env.local` or before the command to use another free
 port. The script checks the selected port before startup and reports a clear
 error instead of overwriting the iOS backend configuration.
+
+For commands that start only FastAPI without updating the iOS configuration,
+see [server/README.md](./server/README.md#backend-only).
 
 Allow incoming Python connections if macOS asks. Then open
 `VoiceAgent.xcworkspace`, select your development team and connected iPhone,
@@ -53,11 +56,11 @@ Do not use `localhost` for a physical iPhone because it resolves to the phone
 rather than the Mac. Only Debug builds allow development HTTP for this local
 LAN workflow; Release builds keep the arbitrary-load exception disabled.
 
-The demo explicitly uses Agora Fengming STT with managed OpenAI LLM and MiniMax
+The demo explicitly uses Agora Ares STT with managed OpenAI LLM and MiniMax
 TTS, so the default path does not require third-party provider keys. The iOS app contains
 no App Certificate or provider credentials. The backend generates the user
-RTC + RTM token and starts or stops the agent with the pinned
-`agora-agents==2.4.1` SDK. This repository does not provide a hosted backend,
+RTC + RTM token and starts or stops the agent with
+`agora-agents>=2.4.1,<3.0.0`. This repository does not provide a hosted backend,
 shared account, TestFlight build, or maintained prebuilt app. See
 [ARCHITECTURE.md](./ARCHITECTURE.md) for the runtime sequence and ownership
 boundaries.
