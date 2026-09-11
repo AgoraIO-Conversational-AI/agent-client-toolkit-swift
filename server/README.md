@@ -14,7 +14,7 @@ cp server/.env.example server/.env.local
 
 Set `AGORA_APP_ID` and `AGORA_APP_CERTIFICATE` in `server/.env.local`.
 `AGENT_PROMPT` and `AGENT_GREETING` are optional copy settings. The backend uses
-`agora-agents>=2.4.1,<3.0.0`. `PORT` is optional and defaults to `8001`.
+`agora-agents>=2.8.0,<3.0.0`. `PORT` is optional and defaults to `8001`.
 
 ## Start
 

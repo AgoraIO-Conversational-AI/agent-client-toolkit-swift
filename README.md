@@ -60,7 +60,7 @@ The demo explicitly uses Agora Ares STT with managed OpenAI LLM and MiniMax
 TTS, so the default path does not require third-party provider keys. The iOS app contains
 no App Certificate or provider credentials. The backend generates the user
 RTC + RTM token and starts or stops the agent with
-`agora-agents>=2.4.1,<3.0.0`. This repository does not provide a hosted backend,
+`agora-agents>=2.8.0,<3.0.0`. This repository does not provide a hosted backend,
 shared account, TestFlight build, or maintained prebuilt app. See
 [ARCHITECTURE.md](./ARCHITECTURE.md) for the runtime sequence and ownership
 boundaries.

@@ -15,7 +15,7 @@ backend, shared credentials, TestFlight build, or prebuilt app.
 
 The iOS client owns RTC, RTM, Toolkit, UI, and immediate local cleanup. The
 FastAPI service under `server/` owns all secrets, combined user token
-generation, and agent lifecycle operations through `agora-agents>=2.4.1,<3.0.0`.
+generation, and agent lifecycle operations through `agora-agents>=2.8.0,<3.0.0`.
 
 Current demo scope includes startup-time independent SOS/EOS selection,
 transcript and latency rendering, agent state, interrupt, text, image URL,
@@ -30,7 +30,7 @@ speak and think messages, manual SOS/EOS, mute, and stop.
 | RTC | `AgoraRtcEngine_iOS` 4.5.1 |
 | RTM | `AgoraRtm/RtmKit` 2.2.3 |
 | Toolkit | local CocoaPods pod `agent-client-toolkit-swift` |
-| Backend | Python 3.10+, FastAPI, `agora-agents>=2.4.1,<3.0.0` |
+| Backend | Python 3.10+, FastAPI, `agora-agents>=2.8.0,<3.0.0` |
 | Providers | Agora Ares STT + managed OpenAI LLM + MiniMax TTS |
 
 ## Core Modules
